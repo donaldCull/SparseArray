@@ -22,6 +22,9 @@ class SparseArray:
     def __len__(self):
         return self._size
 
+    def __iter__(self):
+        return iter(self._data)
+
     def __getitem__(self, item):
         return self._data[item]
 
@@ -35,8 +38,23 @@ class SparseArray:
     def get_usage(self):
         return self._usage
 
-    def fill(self, sequence):
-        pass
+    def fill(self, array):
+        # Check that array will fit within current Arraylist
+        if len(array) > self._size - self._usage:
+            raise ValueError
+        else:
+            new_array_counter = 0
+            sparse_array_counter = 0
+
+            while new_array_counter != len(array):
+                if isinstance(self._data[sparse_array_counter], type(None)):
+                    self._data[sparse_array_counter] = array[new_array_counter]
+                    new_array_counter += 1
+
+                sparse_array_counter += 1
+
+
+
 
 
 
