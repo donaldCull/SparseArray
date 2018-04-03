@@ -40,7 +40,7 @@ class SparseArray:
 
     def __str__(self):
         """
-
+        Allows printing of list
         :return: formatted string of values SparseArray
         """
         array = [str(item) for item in self._data]

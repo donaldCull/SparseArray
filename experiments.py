@@ -72,7 +72,11 @@ def get_element_sparse(n):
     return time_end - time_start
 
 def list_append_experiment(n):
+    """
 
+    :param n: size of list
+    :return: time of total appends
+    """
     l = []
     time_start = time()
     for index in range(n):
