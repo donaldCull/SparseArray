@@ -74,16 +74,17 @@ print("----------------------------------------------------")
 # Unable to create a SparseArray bigger than 10^8
 for i in range(3, 9):
     print("Sparse Array Average of {0:.3f} with n = 10^{1} and m = 5^{2}".format(manual_set_get_sparse_array(10 ** i, 5 ** i) * 1000000, i, i))
-#
-print("----------------------------------------------------")
 
+print("----------------------------------------------------")
 
 for i in range(3, 9):
     print("Sparse fill of {0:.3f} with n = 10^{1} and m = 5^{2}".format(fill_sparse_experiment(10 ** i, 5 ** i) * 1000000, i, i))
 
+print("----------------------------------------------------")
 
 for i in range(3, 9):
     print("Sparse set time of {0:.3f} with n = 10^{1}".format(set_element_sparse(10 ** i) * 1000000, i, i))
+print("----------------------------------------------------")
 
 for i in range(3, 9):
     print("Sparse get time of {0:.3f} with n = 10^{1}".format(get_element_sparse(10 ** i) * 1000000, i, i))
