@@ -25,6 +25,7 @@ def manual_set_get_sparse_array(n, m):
     time_end = time()
     return (time_end - time_start) / times_accessed
 
+
 def fill_sparse_experiment(n, m):
     """
     Measure run-time of fill method with different sizes of n and m
@@ -40,6 +41,7 @@ def fill_sparse_experiment(n, m):
     time_end = time()
     return time_end - time_start
 
+
 def set_element_sparse(n):
     """
     Measure a set operation in a random position within sparse array of n size
@@ -53,6 +55,7 @@ def set_element_sparse(n):
     s_array[rand_index] = rand_index
     time_end = time()
     return time_end - time_start
+
 
 def get_element_sparse(n):
     """
@@ -68,23 +71,40 @@ def get_element_sparse(n):
     time_end = time()
     return time_end - time_start
 
+def list_append_experiment(n):
+
+    l = []
+    time_start = time()
+    for index in range(n):
+        l.append(index)
+    time_stop = time()
+    return time_stop - time_start
+
 
 print("----------------------------------------------------")
 
 # Unable to create a SparseArray bigger than 10^8
 for i in range(3, 9):
-    print("Sparse Array Average of {0:.3f} with n = 10^{1} and m = 5^{2}".format(manual_set_get_sparse_array(10 ** i, 5 ** i) * 1000000, i, i))
+    print("Sparse Array Average of {0:.3f} with n = 10^{1} and m = 5^{2}".format(
+        manual_set_get_sparse_array(10 ** i, 5 ** i), i, i))
 
 print("----------------------------------------------------")
 
 for i in range(3, 9):
-    print("Sparse fill of {0:.3f} with n = 10^{1} and m = 5^{2}".format(fill_sparse_experiment(10 ** i, 5 ** i) * 1000000, i, i))
+    print("Sparse fill of {0:.3f} with n = 10^{1} and m = 5^{2}".format(
+        fill_sparse_experiment(10 ** i, 5 ** i), i, i))
 
 print("----------------------------------------------------")
 
 for i in range(3, 9):
-    print("Sparse set time of {0:.3f} with n = 10^{1}".format(set_element_sparse(10 ** i) * 1000000, i, i))
+    print("Sparse set time of {0:.3f} with n = 10^{1}".format(set_element_sparse(10 ** i), i, i))
 print("----------------------------------------------------")
 
 for i in range(3, 9):
-    print("Sparse get time of {0:.3f} with n = 10^{1}".format(get_element_sparse(10 ** i) * 1000000, i, i))
+    print("Sparse get time of {0:.3f} with n = 10^{1}".format(get_element_sparse(10 ** i), i, i))
+print("----------------------------------------------------")
+
+for i in range(3, 9):
+    print("List append time of {0:.3f} with n = 10^{1}".format(list_append_experiment(10 ** i), i, i))
+
+
