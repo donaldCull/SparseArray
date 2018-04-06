@@ -103,8 +103,14 @@ class SparseArray:
             sparse_array_counter = 0
 
             while new_array_counter != new_array_length:
+                # Check if position in Sparse array is None
                 if isinstance(self._data[sparse_array_counter], type(None)):
-                    self.__setitem__(sparse_array_counter, array[new_array_counter])
-                    new_array_counter += 1
+                    # Check if item in the fill array is not None
+                    if not isinstance(array[new_array_counter], type(None)):
+                        self.__setitem__(sparse_array_counter, array[new_array_counter])
+                        new_array_counter += 1
+                    else:
+                        # If the item is None skip it and move to next index
+                        new_array_counter += 1
 
                 sparse_array_counter += 1

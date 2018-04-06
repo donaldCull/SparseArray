@@ -11,13 +11,13 @@ print(array.get_usage())
 print(array[0])
 print(array[0] is None)
 
-# will throw Index Error !
+# Warning will throw Index Error ! As per specification
 # print(array[1000000])
 
 print("----------------------------------------------------")
 
 # test Sparse Array fill method
-array = [1, 2, 3, 4, 5, 6, 7, 8]
+array = [1, None, 3, 4, 5, 6, 7, 8]
 S = SparseArray(10)
 S[5] = "hello"
 S[7] = "hello"
@@ -31,8 +31,8 @@ S.fill(array)
 for item in S:
     print(item)
 print("----------------------------------------------------")
-
+#
 # display array item types
-
+# Note None type in fill array was not made into a Node
 for item in S:
     print(type(item))
